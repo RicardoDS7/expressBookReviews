@@ -16,7 +16,7 @@ if (req.session.authorization) {
     let token = req.session.authorization['accessToken'];
 
     //Verify Token
-    jwt.JsonWebTokenError.verify(token, "access", (err, user) => {
+    jwt.verify(token, "access", (err, user) => {
         if (!err) {
             req.user = user;
             next();

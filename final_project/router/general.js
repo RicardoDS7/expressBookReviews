@@ -9,7 +9,7 @@ public_users.post("/register", (req,res) => {
   const {username, password } = req.body;
 
   if (username && password) {
-    if (isValid(username)) {
+    if (!isValid(username)) {
         users.push({ username, password});
         console.log(users);
         return res.status(200).json({ message: `${username} is registered successfully!`});
